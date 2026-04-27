@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alphalablite"
+version = "1.0.0"
+description = "AlphaLabLite official reference solution"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.scripts]
+alphalablite = "alphalablite.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["alphalablite*"]
+exclude = ["data*", "examples*", "tests*"]

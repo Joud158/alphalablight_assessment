@@ -1,0 +1,6 @@
+price = Fetch{OneMinuteGoldPrices}{}
+momentum = RateOfChange{3}{price}
+zero = ConstantSeries{0}{price}
+entry = CrossAbove{}{momentum, zero}
+exit = CrossAbove{}{zero, momentum}
+result = PortfolioSimulation{10000}{entry, exit, price}
